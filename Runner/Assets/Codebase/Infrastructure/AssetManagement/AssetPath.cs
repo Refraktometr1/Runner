@@ -4,6 +4,7 @@ namespace CodeBase.Infrastructure.AssetManagement
   {
     public const string HeroPath = "Hero/hero";
     public const string HudPath = "Hud/Hud";
-    public const string ProjectilePath = "Enemies/Lich/Fireball";
+    public const string RoadTilePath = "Environment/RoadTile";
+    public const string RoadPath = "Environment/Road";
   }
 }

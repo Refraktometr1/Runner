@@ -63,6 +63,7 @@ namespace CodeBase.Infrastructure.States
     private void InitGameWorld()
     {
       GameObject hero = _gameFactory.CreateHero(Vector3.zero);
+      _gameFactory.CreateRoad(hero.transform);
       InitHud(hero);
 
       CameraFollow(hero);
