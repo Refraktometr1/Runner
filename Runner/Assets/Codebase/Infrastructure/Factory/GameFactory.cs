@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using UnityEngine;
+using Zenject;
 
 namespace CodeBase.Infrastructure.Factory
 {
@@ -11,14 +12,13 @@ namespace CodeBase.Infrastructure.Factory
     public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
     public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
     private readonly IAssetProvider _assets;
-    
+
     public GameObject HeroGameObject { get; set; }
     public event Action HeroCreated;
 
-    public GameFactory(IAssetProvider assetProvider)
-    {
+    [Inject]
+    public GameFactory(IAssetProvider assetProvider) => 
       _assets = assetProvider;
-    }
 
     public GameObject CreateHero(Vector3 at)
     {

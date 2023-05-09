@@ -1,16 +1,18 @@
 using Codebase.Data;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Infrastructure.Services.SaveLoad;
+using Zenject;
 
 namespace CodeBase.Infrastructure.States
 {
   public class LoadProgressState : IState
   {
-    private readonly GameStateMachine _gameStateMachine;
-    private readonly IPersistentProgressService _progressService;
-    private readonly ISaveLoadService _saveLoadProgress;
-
-    public LoadProgressState(GameStateMachine gameStateMachine, IPersistentProgressService progressService, ISaveLoadService saveLoadProgress)
+    private GameStateMachine _gameStateMachine;
+    private IPersistentProgressService _progressService;
+    private ISaveLoadService _saveLoadProgress;
+    
+    [Inject]
+    public void Construct(IPersistentProgressService progressService, ISaveLoadService saveLoadProgress,GameStateMachine gameStateMachine)
     {
       _gameStateMachine = gameStateMachine;
       _progressService = progressService;
@@ -20,7 +22,6 @@ namespace CodeBase.Infrastructure.States
     public void Enter()
     {
       LoadProgressOrInitNew();
-      
       _gameStateMachine.Enter<LoadLevelState, string>(_progressService.Progress.WorldData.LevelName);
     }
 
