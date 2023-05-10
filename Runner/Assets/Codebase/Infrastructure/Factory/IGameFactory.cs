@@ -16,5 +16,6 @@ namespace CodeBase.Infrastructure.Factory
     List<ISavedProgress> ProgressWriters { get; }
     void Cleanup();
     void CreateRoad(Transform hero);
+    void CreateRoadsideEnvironment(Transform hero);
   }
 }

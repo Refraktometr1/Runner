@@ -6,5 +6,6 @@ namespace CodeBase.Infrastructure.AssetManagement
     public const string HudPath = "Hud/Hud";
     public const string RoadTilePath = "Environment/RoadTile";
     public const string RoadPath = "Environment/Road";
+    public const string RoadsideEnvironmentPath = "Environment/RoadsideEnvironment";
   }
 }

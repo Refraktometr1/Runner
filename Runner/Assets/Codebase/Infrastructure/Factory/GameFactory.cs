@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Logic;
+using Codebase.Logic.Environment;
 using UnityEngine;
 using Zenject;
 
@@ -41,6 +42,12 @@ namespace CodeBase.Infrastructure.Factory
         {
             var road = InstantiateRegistered(AssetPath.RoadPath).GetComponent<Road>();
             road.Construct(hero);
+        }
+
+        public void CreateRoadsideEnvironment(Transform hero)
+        {
+            var roadsideEnvironment = InstantiateRegistered(AssetPath.RoadsideEnvironmentPath).GetComponent<RoadsideEnvironment>();
+            roadsideEnvironment.Construct(hero);
         }
 
         private GameObject InstantiateRegistered(string prefabPath, Vector3 at)

@@ -64,6 +64,7 @@ namespace CodeBase.Infrastructure.States
     {
       GameObject hero = _gameFactory.CreateHero(Vector3.zero);
       _gameFactory.CreateRoad(hero.transform);
+      _gameFactory.CreateRoadsideEnvironment(hero.transform);
       InitHud(hero);
 
       CameraFollow(hero);
